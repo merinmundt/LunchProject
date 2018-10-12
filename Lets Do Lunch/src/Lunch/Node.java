@@ -12,8 +12,9 @@ public class Node {
 	List<Node> avoidNode = new ArrayList<Node>();
 	List<Node> peggyStart = new ArrayList<Node>();
 	List<Node> samStart = new ArrayList<Node>();
-	
-	
+	List<Node> peggySpot = new ArrayList<Node>();	
+	List<Node> samSpot = new ArrayList<Node>();	
+
 	public void build(){
 		Scanner reader = new Scanner(System.in);  
 		String inText = reader.nextLine();
@@ -88,7 +89,27 @@ public class Node {
 	}
 	
 	public void lookforSpot(){
+		checkAvoid();
+		Node current; 
+		for(int i = 0; i < peggyStart.size(); i++){
+			current = peggyStart[i];
+			peggySpot.add(current);
+			if(mapNode.get(current)){
+				
+			}
 		
+		
+	}
+	
+	public void checkAvoid(){
+		for(int i = 0; i < avoidNode.size(); i++){
+			if(peggyStart.contains(avoidNode[i])){
+				peggyStart.remove(avoidNode[i])
+			}
+			if(samStart.contains(avoidNode[i])){
+				samStart.remove(avoidNode[i]);
+			}
+		}
 	}
 	
 }	
