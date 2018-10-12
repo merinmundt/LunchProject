@@ -1,0 +1,14 @@
+package Lunch;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class nodeTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
