@@ -23,7 +23,7 @@ public class Node {
 					break;
 				}
 				String[] split = inText.split("\\s+");
-				mapNodes.add(createNode(split[0], split[1]));
+				createNode(split[0], split[1]);
 				
 				inText = reader.nextLine();
 		}
@@ -56,13 +56,13 @@ public class Node {
 		else{
 			String[] split = inText.split("\\s+");
 			for(int i = 0; i < split.length; i ++){
-			peggyStart.add(sNode(split[i]));
+				samStart.add(sNode(split[i]));
 			}
 			
 			lookforSpot();
 		}
 		
-		
+		reader.close();
 	}
 	
 	public Node sNode(String name){
@@ -72,16 +72,23 @@ public class Node {
 		return newNode;
 	}
 	
-	public Node createNode(String name, String neighbor){
+	public void createNode(String name, String neighbor){
 		Node newNode = null;
+		Node neighborNode = null;
+		
+		neighborNode.name = neighbor;
+		neightborNode.neighbor = name;
+		
 		newNode.name = name;
 		newNode.neighbor = neighbor;
 		
-		return newNode;
+		mapNodes.add(newNode);
+		mapNodes.add(neighborNode);
+		
 	}
 	
 	public void lookforSpot(){
-		//check for meeting points
+		
 	}
 	
 }	
