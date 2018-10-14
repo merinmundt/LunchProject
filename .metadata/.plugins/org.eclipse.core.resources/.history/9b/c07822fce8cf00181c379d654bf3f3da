@@ -78,32 +78,14 @@ public class Lunch2 {
         
     }
     
-    //method to sort through the lists, cross reference them, and come out with the possible meeting points for one individual
     public static ArrayList<String> getPossible(ArrayList<String> Source, ArrayList<String> Neighbors, String[] AvoidList, String[] StartNodes){
     	ArrayList<String> possible = new ArrayList<String>();
     	Queue<String> listOfConnections = new LinkedList<String>();
-    	String current = null;
-    	int index = 0;
+    	String current;
     	for(int i = 0; i < StartNodes.length; i++){
     		listOfConnections.add(StartNodes[i]);
     	}
-    	while(!listOfConnections.isEmpty())
-    		//grabbing the element, and removing it off of the list of "unvisited" nodes
-    		current = listOfConnections.remove();
-    		//checks if node is listed within AvoidList
-    		if(!Arrays.asList(AvoidList).contains(current)){
-    			possible.add(current);
-    			index = Source.indexOf(current);
-    			while(index != -1){
-    				listOfConnections.add(Neighbors.get(index));
-    				//now checking if current has more than one neighbor. (DFS ish)
-    				if(index < Source.size() && Source.get(index+1).equals(current)){
-    					listOfConnections.add(Neighbors.get(index + 1));
-    					index++;
-    				}
-    			}
-    			
-    		}
+    	
     	
     
     
