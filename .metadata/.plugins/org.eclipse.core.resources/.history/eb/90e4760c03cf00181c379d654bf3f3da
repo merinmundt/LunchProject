@@ -101,6 +101,7 @@ public class Node {
 			while(mapNodes.contains(current)){
 				index = mapNodes.indexOf(current);
 				current.neighbor = mapNodes.get(index).neighbor;
+				current.visited = yes;
 				next.name = current.neighbor;
 				current = next;
 				peggySpot.add(current);

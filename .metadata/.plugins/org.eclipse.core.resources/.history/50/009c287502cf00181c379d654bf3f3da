@@ -82,7 +82,6 @@ public class Node {
 		
 		newNode.name = name;
 		newNode.neighbor = neighbor;
-		 
 		
 		mapNodes.add(newNode);
 		//mapNodes.add(neighborNode);
@@ -101,8 +100,7 @@ public class Node {
 			while(mapNodes.contains(current)){
 				index = mapNodes.indexOf(current);
 				current.neighbor = mapNodes.get(index).neighbor;
-				next.name = current.neighbor;
-				current = next;
+				next.name = current.neighbor; 
 				peggySpot.add(current);
 				
 			}
