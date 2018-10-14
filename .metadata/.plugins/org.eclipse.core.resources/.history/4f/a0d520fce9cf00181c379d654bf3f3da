@@ -76,14 +76,6 @@ public class Lunch2 {
         PeggyPossible = getPossible(PeggyNode, PeggyNeighbor, AvoidNode, PeggyStart);
         SamPossible = getPossible(SamNode, SamNeighbor, AvoidNode, SamStart);
         
-        //check where the paths cross
-        //method returns only the nodes that both lists contain
-        //Peggys list get adjusted
-        PeggyPossible.retainAll(SamPossible);        
-        //print out the list to stdout
-        for(String Node : PeggyPossible){
-        	System.out.println(Node);
-        }
     }
     
     //method to sort through the lists, cross reference them, and come out with the possible meeting points for one individual
