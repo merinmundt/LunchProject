@@ -34,7 +34,7 @@ public class Lunch2 {
         //to find the individual lists
         try {
         	
-        	FileReader fr = new FileReader("input.txt");
+        	FileReader fr = new FileReader("./input.txt");
         	InputStreamReader in= new InputStreamReader(System.in);
             BufferedReader read = new BufferedReader(fr);
             Input = read.readLine();

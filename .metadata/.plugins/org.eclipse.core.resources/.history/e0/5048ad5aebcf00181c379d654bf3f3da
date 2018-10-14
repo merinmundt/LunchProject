@@ -22,9 +22,9 @@ public class Lunch {
        
         try {
         	
-        	
+        	FileReader fr = new FileReader("input.txt");
         	InputStreamReader in= new InputStreamReader(System.in);
-            BufferedReader read = new BufferedReader(in);
+            BufferedReader read = new BufferedReader(fr);
             Input = read.readLine();
             while (Input != null) {
             	mapNodes.add(Input);
