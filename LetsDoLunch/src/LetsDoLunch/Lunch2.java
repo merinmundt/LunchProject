@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -69,7 +70,7 @@ public class Lunch2 {
         }
         
         //sorting for sam
-        for(int i = 1; i < SortSam.size(); i++){
+        for(int i = 0; i < SortSam.size(); i++){
         	String[] split = SortSam.get(i).split(" ");
         	SamNode.add(split[0]);
         	SamNeighbor.add(split[1]);
@@ -82,9 +83,18 @@ public class Lunch2 {
         //check where the paths cross
         //method returns only the nodes that both lists contain
         //Peggys list get adjusted
-        PeggyPossible.retainAll(SamPossible);        
+        PeggyPossible.retainAll(SamPossible);  
+        
+        //check to make sure that the result does not print the same meeting spot twice
+        HashSet<String> result = new HashSet<>();
+        for(String node: PeggyPossible){
+        	if(!result.contains(node)){
+        		result.add(node);
+        	}
+        }
+        
         //print out the list to stdout
-        for(String Node : PeggyPossible){
+        for(String Node : result){
         	System.out.println(Node);
         }
     }
@@ -101,10 +111,22 @@ public class Lunch2 {
     	while(!listOfConnections.isEmpty()){
     		//grabbing the element, and removing it off of the list of "unvisited" nodes
     		current = listOfConnections.remove();
+    		
+    		//checking for cycles
+    		if(possible.contains(current)){
+    			if(!listOfConnections.isEmpty()){
+    			current = listOfConnections.remove();
+    			}
+    			else{
+    				return possible;
+    			}
+    		}
+    		
     		//checks if node is listed within AvoidList
     		if(!Arrays.asList(AvoidList).contains(current)){
     			possible.add(current);
     			index = Source.indexOf(current);
+    			//
     			if(index != -1){
     				listOfConnections.add(Neighbors.get(index));
     				while(index!=Source.size()-1){
