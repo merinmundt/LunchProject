@@ -1,0 +1,22 @@
+Map:
+a1 b1
+a1 b2
+a2 b3
+a3 b3
+a3 b4
+a3 b5
+b1 c1
+b2 c2
+b3 c2
+b3 c3
+b4 c3
+b5 c4
+c2 d1
+c3 d1
+c4 d1
+Avoid:
+b4
+Peggy:
+a2 a3
+Sam:
+d1

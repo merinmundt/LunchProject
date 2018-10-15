@@ -1,0 +1,15 @@
+I use arrayLists to go through this entire project. I quickly realized that this would require a lot of them.
+I used a bufferedReader to read from stdin. I tested my project with an input.txt file that I have now deleted
+but both files ended up getting the correct output. 
+
+I had to use the split() function to be able to parse through the input correctly. Then I took all the parts of 
+of the split function and placed the following node in the corresponding ArrayList that I wanted. 
+
+By splitting up the individual nodes and the neighbors, I was able to use indices to go to each neighbor 
+separately and add them to my listOfConnections arraylist that would lead to my possible meeting points.
+
+Then using the Arrays class, which I was happy to come across, I was able to make sure the avoidNode was 
+avoided. 
+
+I learned a lot about arrayLists from this project. Using the functions get() and indexOf() were huge helps to
+my project. I also learned about 
