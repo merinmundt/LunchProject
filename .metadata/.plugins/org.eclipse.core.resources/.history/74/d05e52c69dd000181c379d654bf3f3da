@@ -98,7 +98,7 @@ public class Lunch2 {
     	for(int i = 0; i < StartNodes.length; i++){
     		listOfConnections.add(StartNodes[i]);
     	}
-    	while(!listOfConnections.isEmpty()){
+    	while(!listOfConnections.isEmpty())
     		//grabbing the element, and removing it off of the list of "unvisited" nodes
     		current = listOfConnections.remove();
     		//checks if node is listed within AvoidList
@@ -107,18 +107,14 @@ public class Lunch2 {
     			index = Source.indexOf(current);
     			if(index != -1){
     				listOfConnections.add(Neighbors.get(index));
-    				while(index!=Source.size()-1){
-    					//now checking if current has more than one neighbor. (DFS ish)
-    					if(index < Source.size() && Source.get(index+1).equals(current)){
-    						listOfConnections.add(Neighbors.get(index + 1));
-    				
-    					}
+    				//now checking if current has more than one neighbor. (DFS ish)
+    				while(index < Source.size() && Source.get(index+1).equals(current)){
+    					listOfConnections.add(Neighbors.get(index + 1));
     					index++;
     				}
     			}
     			
     		}
-    	}
     	
     
     

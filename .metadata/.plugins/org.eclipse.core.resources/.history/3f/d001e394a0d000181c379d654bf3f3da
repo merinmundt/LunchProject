@@ -107,7 +107,7 @@ public class Lunch2 {
     			index = Source.indexOf(current);
     			if(index != -1){
     				listOfConnections.add(Neighbors.get(index));
-    				while(index!=Source.size()-1){
+    				while(index!=Source.size-1){
     					//now checking if current has more than one neighbor. (DFS ish)
     					if(index < Source.size() && Source.get(index+1).equals(current)){
     						listOfConnections.add(Neighbors.get(index + 1));

@@ -34,13 +34,12 @@ public class Lunch2 {
         //to find the individual lists
         try {
         	
-        	FileReader fr = new FileReader("/Users/merinmundt/Documents/Personal Projects/LunchProject/LetsDoLunch/src/LetsDoLunch/input.txt");
+        	FileReader fr = new FileReader("input.txt");
         	InputStreamReader in= new InputStreamReader(System.in);
             BufferedReader read = new BufferedReader(fr);
             Input = read.readLine();
             while (Input != null) {
             	mapNodes.add(Input);
-            	Input = read.readLine();
             }
             read.close();
         } catch (Exception e) {
@@ -98,27 +97,23 @@ public class Lunch2 {
     	for(int i = 0; i < StartNodes.length; i++){
     		listOfConnections.add(StartNodes[i]);
     	}
-    	while(!listOfConnections.isEmpty()){
+    	while(!listOfConnections.isEmpty())
     		//grabbing the element, and removing it off of the list of "unvisited" nodes
     		current = listOfConnections.remove();
     		//checks if node is listed within AvoidList
     		if(!Arrays.asList(AvoidList).contains(current)){
     			possible.add(current);
     			index = Source.indexOf(current);
-    			if(index != -1){
+    			while(index != -1){
     				listOfConnections.add(Neighbors.get(index));
-    				while(index!=Source.size()-1){
-    					//now checking if current has more than one neighbor. (DFS ish)
-    					if(index < Source.size() && Source.get(index+1).equals(current)){
-    						listOfConnections.add(Neighbors.get(index + 1));
-    				
-    					}
+    				//now checking if current has more than one neighbor. (DFS ish)
+    				if(index < Source.size() && Source.get(index+1).equals(current)){
+    					listOfConnections.add(Neighbors.get(index + 1));
     					index++;
     				}
     			}
     			
     		}
-    	}
     	
     
     
